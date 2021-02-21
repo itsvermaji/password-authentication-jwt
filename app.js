@@ -6,6 +6,7 @@ const dotenv = require('dotenv')
 const app = express()
 // import routes
 const authRoutes = require('./routes/auth')
+const postRoute = require('./routes/posts')
 
 dotenv.config()
 
@@ -33,6 +34,7 @@ db.once('open', function() {
 
 // route middlewares
 app.use('/api/user', authRoutes);
+app.use('/api/posts', postRoute)
 
 // port setting 
 const PORT = 3000;
